@@ -11,7 +11,6 @@ export default function broad() {
             value,
             tab
         })
-
     }
     bc.onmessage = (res) => {
         const {

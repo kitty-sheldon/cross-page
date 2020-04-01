@@ -1,5 +1,6 @@
 import broad from './src/broad'
 import local from './src/local'
+import sw from './src/sw'
 
 window.onload = ()=>{
     const {type} = performance.navigation
@@ -13,20 +14,9 @@ window.onload = ()=>{
     document.getElementById('title').innerText = `Tab${num}` 
     broad()
     local()
-
+    sw()
 }
 
 window.onpenNewTab = function(){
   window.open(`${location.href}?new=1`)
 }
-
-
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/src/sw.js').then(function(reg) {
-      // registration worked
-      console.log('Registration succeeded. Scope is ' + reg);
-    }).catch(function(error) {
-      // registration failed
-      console.log('Registration failed with ' + error);
-    });
-  }
