@@ -20,10 +20,23 @@
 <body>
     <h1 id="title"></h1> <button onclick="onpenNewTab()">new Tab</button>
 <ul class="main">
-    <li><input id="bc-input"/><button id="broadcast">broadcast</button><span id="bc-message"></span></li>
-    <li><input id="ls-input"/><button id="localstorage">localstorage</button><span id="ls-message"></span></li>
-    <li><input id="sw-input"/><button id="serviceworker">serviceworker</button><span id="sw-message"></span></li>
-    <li></li>
+    <li id="bc-container">
+        <input class="input"/>
+        <button class="btn">broadcast</button>
+        <span class="message"></span>
+    </li>
+    <li id="ls-container">
+        <input class="input"/>
+        <button class="btn">localstorage</button>
+        <span class="message"></span>
+    </li>
+    <li id="sw-container">
+        <span id="sw-state"></span>
+        <input class="input"/>
+        <button class="btn">serviceworker</button>
+        <span class="message"></span>
+    </li>
+    <li id="test"></li>
     <li></li>
     <li></li>
 </ul>
