@@ -2,7 +2,8 @@ import broadcast from './src/broadcast'
 import localstorage from './src/localstorage'
 import serviceworker from './src/serviceworker'
 import sharedworker from './src/sharedworker'
-import winopen from './src/winopen';
+import winopen from './src/winopen'
+import so from './src/socket'
 
 const openers = []
 window.onload = ()=>{
@@ -21,6 +22,7 @@ window.onload = ()=>{
     serviceworker()
     sharedworker()
     winopen(openers)
+    so()
 }
 
 window.onpenNewTab = function(){

@@ -5,7 +5,6 @@ export default function winopen(openers) {
     util.emptyMessage(e)
     const value = util.getValue(e)
     const tab = util.getTab()
-    console.log(openers,'openers')
     openers.filter(w => !w.closed).forEach(w => w.postMessage({
       value,
       tab
