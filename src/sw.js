@@ -4,7 +4,7 @@ export default function sw() {
   if ('serviceWorker' in navigator) {
     const container = document.getElementById('sw-container');
     navigator.serviceWorker.register('/sw.js').then(function (registration) {
-      const contentDom = container.querySelector('#sw-state');  //状态，方便调试chrome://inspect/#service-workers
+      const contentDom = container.querySelector('#sw-state');  //for debug chrome://inspect/#service-workers
       if (registration.installing) {
         contentDom.textContent = 'installing ';
       } else if (registration.waiting) {
@@ -15,7 +15,7 @@ export default function sw() {
           util.emptyMessage(e)
           const value = util.getValue(e)
           const tab = util.getTab()
-          //active状态有postMessage方法，其他navigator.serviceWorker.controller =null
+          //registration.active avoid navigator.serviceWorker.controller =null
           navigator.serviceWorker.controller.postMessage({
             value,
             tab

@@ -7,7 +7,7 @@ window.onload = ()=>{
     const isRefresh = type === 1
     const isNew = /new/.test(location.search)
     let num = isNew ? Number(localStorage.getItem('xx_broad')) : 0
-    //刷新不更改数字
+    //refresh doesn't need to update num
     if((num && !isRefresh) || !num ){
         num++
     }

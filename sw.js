@@ -1,10 +1,10 @@
 self.addEventListener('install', function (event) {
-    event.waitUntil(self.skipWaiting()); // Activate worker immediately
+    event.waitUntil(self.skipWaiting()); // skip waiting, Activate worker immediately
 });
 
-// self.addEventListener('activate', function(event) {
-//     event.waitUntil(self.clients.claim()); // Become available to all pages
-// });
+self.addEventListener('activate', function(event) {
+    event.waitUntil(self.clients.claim()); // update client
+});
 
 self.addEventListener('message', function (event) {
     event.waitUntil(
