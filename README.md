@@ -1,6 +1,10 @@
 # cross-page
 communicate between pages
-
+1. broadcast
+2. localstorage
+3. Service Worker
+4. Shared Worker
+5. 
 
 
 serviceworker reference:

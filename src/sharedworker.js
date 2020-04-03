@@ -1,6 +1,6 @@
 import util from './util'
 
-export default function shared(){
+export default function shared() {
   const sharedworker = new SharedWorker('../shared.js')
   const container = document.getElementById('shared-container')
   sharedworker.port.start()
@@ -8,17 +8,13 @@ export default function shared(){
     util.updateTextAndInput(container, tab, value)
   }
 
-  util.queryButton(container).onclick = (e)=>{
-      util.emptyMessage(e)
-      const value = util.getValue(e)
-      const tab = util.getTab()
-      sharedworker.port.postMessage({
-        value,
-        tab
-      })
-      
+  util.queryButton(container).onclick = (e) => {
+    util.emptyMessage(e)
+    const value = util.getValue(e)
+    const tab = util.getTab()
+    sharedworker.port.postMessage({
+      value,
+      tab
+    })
   }
-  
 }
-
-
