@@ -1,5 +1,6 @@
 let ports = []
 onconnect = e => {
+	console.log(e)
 	const port = e.ports[0]
 	ports.push(port)
 	port.onmessage = evt => {
