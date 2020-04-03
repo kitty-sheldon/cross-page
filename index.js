@@ -2,7 +2,9 @@ import broadcast from './src/broadcast'
 import localstorage from './src/localstorage'
 import serviceworker from './src/serviceworker'
 import sharedworker from './src/sharedworker'
+import winopen from './src/winopen';
 
+const openers = []
 window.onload = ()=>{
     const {type} = performance.navigation
     const isRefresh = type === 1
@@ -18,9 +20,11 @@ window.onload = ()=>{
     localstorage()
     serviceworker()
     sharedworker()
+    winopen(openers)
 }
 
 window.onpenNewTab = function(){
-  window.open(`${location.origin}?new=1`)
+  const open =window.open(`${location.origin}?new=1`)   //return an opened page reference
+  openers.push(open)
 }
 

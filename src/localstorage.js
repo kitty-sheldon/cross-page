@@ -5,13 +5,11 @@ export default function local(){
     util.queryButton(container).onclick = (e)=>{
         util.emptyMessage(e)
         const value = util.getValue(e)
-        debugger
         const tab = util.getTab()
         localStorage.setItem('message', JSON.stringify({
             value,
             tab
         }))
-        
     }
     window.onstorage = (res)=>{
         const {key, newValue} = res

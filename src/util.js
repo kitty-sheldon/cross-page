@@ -13,7 +13,7 @@ const util = {
     return ele.parentNode
   },
   updateTextAndInput(container, from, text){
-    if(isSameTab(from)) return
+    if(this.isSameTab(from)) return
     container.querySelector('.message').innerText = `[message]: get ${text} from ${from}`
     this.getInput(container).value = text
   },
@@ -22,12 +22,11 @@ const util = {
   },
   queryButton(container){
     return container.querySelector('.btn')
+  },
+  isSameTab(from){
+    return from === this.getTab()
   }
 }
 
 
-function isSameTab(from){
-  return from === util.getTab()
-
-}
 export default util
