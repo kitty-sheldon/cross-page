@@ -1,6 +1,7 @@
-import broad from './src/broad'
-import local from './src/local'
-import sw from './src/sw'
+import broadcast from './src/broadcast'
+import localstorage from './src/localstorage'
+import serviceworker from './src/serviceworker'
+import sharedworker from './src/sharedworker'
 
 window.onload = ()=>{
     const {type} = performance.navigation
@@ -13,13 +14,13 @@ window.onload = ()=>{
     }
     localStorage.setItem('xx_broad', num)
     document.getElementById('title').innerText = `Tab${num}` 
-    broad()
-    local()
-    sw()
-
+    broadcast()
+    localstorage()
+    serviceworker()
+    sharedworker()
 }
 
 window.onpenNewTab = function(){
-  window.open(`${location.href}?new=1`)
+  window.open(`${location.origin}?new=1`)
 }
 

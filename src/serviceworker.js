@@ -3,7 +3,7 @@ import util from './util'
 export default function sw() {
   if ('serviceWorker' in navigator) {
     const container = document.getElementById('sw-container');
-    navigator.serviceWorker.register('/sw.js').then(function (registration) {
+    navigator.serviceWorker.register('/service.js').then(function (registration) {
       const contentDom = container.querySelector('#sw-state');  //for debug chrome://inspect/#service-workers
       if (registration.installing) {
         contentDom.textContent = 'installing ';
