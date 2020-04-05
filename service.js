@@ -5,7 +5,7 @@ self.addEventListener('install', function (event) {
 self.addEventListener('activate', function(event) {
     event.waitUntil(self.clients.claim()); // update client
 });
-const serviceworkerPorts = []
+
 self.addEventListener('message', function (event) {
     event.waitUntil(
         self.clients.matchAll().then(function (clients) {
